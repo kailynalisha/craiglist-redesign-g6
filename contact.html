@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact seller — craigslist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+Pro:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    try { document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"; } catch (e) {}
+  </script>
+</head>
+
+<body data-page="contact">
+  <header>
+    <div class="navbar">
+      <a class="brand" href="index.html">
+        <img class="brand__logo brand__logo--mobile" src="assets/logo-mobile.svg" width="38" height="38" alt="" />
+        <img class="brand__logo brand__logo--desktop" src="assets/logo-desktop.svg" width="66" height="66" alt="" />
+        <span class="brand__name">craigslist</span>
+      </a>
+    </div>
+
+    <div class="subnav">
+      <div class="subnav__left">
+        <button class="menu-btn mobile-only" type="button" aria-label="Open menu" data-open-menu>
+          <img src="assets/menu-dark.svg" width="33" height="30" alt="" />
+        </button>
+        <a class="btn btn--primary subnav__back" href="index.html" data-back>Back</a>
+        <span class="subnav__title desktop-only">Contact</span>
+      </div>
+
+      <form class="search" action="search.html" role="search">
+        <div class="search__field">
+          <img class="icon-muted" src="assets/icon-search.svg" width="24" height="24" alt="" />
+          <label class="visually-hidden" for="q">Search craigslist</label>
+          <input class="search__input" id="q" type="search" name="q" placeholder="Search craigslist" autocomplete="off" />
+          <button class="search__clear" type="button" aria-label="Clear search">
+            <img class="icon-muted" src="assets/icon-close.svg" width="24" height="24" alt="" />
+          </button>
+        </div>
+      </form>
+    </div>
+  </header>
+
+  <main class="contact">
+    <div class="page-bar mobile-only">
+      <a class="btn btn--outline" href="index.html" data-back>Back</a>
+      <p class="page-bar__title">Contact Seller</p>
+    </div>
+
+    <div class="contact__body">
+      <h1 class="contact__title">
+        <span class="mobile-only">Message the seller</span>
+        <span class="desktop-only">Contact Seller</span>
+      </h1>
+      <p class="contact__intro">Ask about availability or arrange a pickup.</p>
+      <p class="contact__about" id="contact-about" hidden></p>
+
+      <form class="message-form" id="message-form" novalidate>
+        <label for="message">Message *</label>
+        <textarea id="message" name="message" maxlength="3000" placeholder="Hi, is this still available?" aria-describedby="message-count message-error" required></textarea>
+        <p class="message-form__error" id="message-error" hidden>Please write a message before sending.</p>
+        <p class="message-form__hint"><span class="mobile-only">* Required · </span><span id="message-count">0/3000 characters</span></p>
+        <button class="btn btn--container" type="submit">Send Message</button>
+      </form>
+    </div>
+  </main>
+
+  <dialog class="dialog" id="sent-dialog" aria-labelledby="sent-title">
+    <div class="dialog__inner">
+      <h2 id="sent-title">Message sent!</h2>
+      <p>Your message has been sent to the seller.</p>
+      <button class="btn btn--container btn--block" type="button" data-done>Done</button>
+    </div>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>

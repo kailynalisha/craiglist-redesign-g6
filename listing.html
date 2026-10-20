@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Listing — craigslist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+Pro:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    try { document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"; } catch (e) {}
+  </script>
+</head>
+
+<body data-page="listing">
+  <header>
+    <div class="navbar">
+      <a class="brand" href="index.html">
+        <img class="brand__logo brand__logo--mobile" src="assets/logo-mobile.svg" width="38" height="38" alt="" />
+        <img class="brand__logo brand__logo--desktop" src="assets/logo-desktop.svg" width="66" height="66" alt="" />
+        <span class="brand__name">craigslist</span>
+      </a>
+    </div>
+
+    <div class="subnav">
+      <div class="subnav__left">
+        <button class="menu-btn mobile-only" type="button" aria-label="Open menu" data-open-menu>
+          <img src="assets/menu-dark.svg" width="33" height="30" alt="" />
+        </button>
+        <a class="btn btn--primary subnav__back" href="search.html" data-back>Back</a>
+        <span class="subnav__title desktop-only">Details</span>
+      </div>
+
+      <form class="search" action="search.html" role="search">
+        <div class="search__field">
+          <img class="icon-muted" src="assets/icon-search.svg" width="24" height="24" alt="" />
+          <label class="visually-hidden" for="q">Search craigslist</label>
+          <input class="search__input" id="q" type="search" name="q" placeholder="Search craigslist" autocomplete="off" />
+          <button class="search__clear" type="button" aria-label="Clear search">
+            <img class="icon-muted" src="assets/icon-close.svg" width="24" height="24" alt="" />
+          </button>
+        </div>
+      </form>
+    </div>
+  </header>
+
+  <main class="listing">
+    <div class="page-bar mobile-only">
+      <a class="btn btn--outline" href="search.html" data-back>Back</a>
+      <p class="page-bar__title">Listing details</p>
+    </div>
+
+    <div class="listing__layout">
+      <div class="listing__media">
+        <div class="listing__thumb">
+          <img class="icon" id="listing-icon" src="assets/icon-for-sale-lg.svg" width="48" height="48" alt="" />
+        </div>
+        <div class="listing__facts desktop-only">
+          <span class="tag" id="listing-tag">For Sale</span>
+          <div>
+            <p><strong>Condition</strong>: n/a</p>
+            <p><strong>Posted</strong>: <span id="listing-posted"></span></p>
+          </div>
+        </div>
+      </div>
+
+      <article class="listing__info">
+        <h1 class="listing__title" id="listing-title"></h1>
+        <p class="listing__price"><span class="desktop-only">Price: </span><span id="listing-price"></span></p>
+        <p class="listing__meta mobile-only" id="listing-meta"></p>
+        <div class="listing__desc" id="listing-desc"></div>
+
+        <section class="location-card" aria-label="Location">
+          <h2 class="mobile-only">Location</h2>
+          <div class="location-card__text">
+            <address>123 Main Street<br />City, State 45678</address>
+            <a class="btn btn--primary desktop-only" href="contact.html" data-contact-link>Contact Seller</a>
+          </div>
+          <div class="location-card__map">
+            <img class="icon" src="assets/location-on.svg" width="40" height="40" alt="Map placeholder" />
+          </div>
+        </section>
+      </article>
+    </div>
+
+    <div class="contact-bar mobile-only">
+      <a class="btn btn--container btn--block" href="contact.html" data-contact-link>Contact Seller</a>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search results — craigslist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+Pro:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    try { document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"; } catch (e) {}
+  </script>
+</head>
+
+<body data-page="search">
+  <header>
+    <div class="navbar">
+      <a class="brand" href="index.html">
+        <img class="brand__logo brand__logo--mobile" src="assets/logo-mobile.svg" width="38" height="38" alt="" />
+        <img class="brand__logo brand__logo--desktop" src="assets/logo-desktop.svg" width="66" height="66" alt="" />
+        <span class="brand__name">craigslist</span>
+      </a>
+    </div>
+
+    <div class="subnav">
+      <div class="subnav__left">
+        <button class="menu-btn mobile-only" type="button" aria-label="Open menu" data-open-menu>
+          <img src="assets/menu-dark.svg" width="33" height="30" alt="" />
+        </button>
+        <a class="btn btn--primary subnav__back" href="index.html" data-back>Back</a>
+        <span class="subnav__title desktop-only">Search results</span>
+      </div>
+
+      <form class="search" action="search.html" role="search">
+        <div class="search__field">
+          <img class="icon-muted" src="assets/icon-search.svg" width="24" height="24" alt="" />
+          <label class="visually-hidden" for="q">Search craigslist</label>
+          <input class="search__input" id="q" type="search" name="q" placeholder="Search craigslist" autocomplete="off" />
+          <button class="search__clear" type="button" aria-label="Clear search">
+            <img class="icon-muted" src="assets/icon-close.svg" width="24" height="24" alt="" />
+          </button>
+        </div>
+      </form>
+    </div>
+  </header>
+
+  <!-- loading state -->
+  <div id="loading" role="status">
+    <div class="progress"><div class="progress__bar"></div></div>
+    <div class="loading">
+      <strong>Searching…</strong>
+      <p>Finding listings for <span id="loading-query">everything</span></p>
+    </div>
+  </div>
+
+  <main class="results-page" id="results-page" hidden>
+    <h1 class="results-page__heading" id="results-heading">Search Results</h1>
+
+    <aside class="filters" aria-label="Filters">
+      <p class="filters__heading">FILTER</p>
+
+      <div class="filter-group">
+        <button class="filter-group__header" type="button" aria-expanded="true" aria-controls="filter-category">Filter Category</button>
+        <div class="filter-group__options" id="filter-category">
+          <button class="chip" type="button" aria-pressed="false" data-filter="category" data-value="for-sale">For Sale</button>
+          <button class="chip" type="button" aria-pressed="false" data-filter="category" data-value="services">Services</button>
+          <button class="chip" type="button" aria-pressed="false" data-filter="category" data-value="jobs">Jobs</button>
+          <button class="chip" type="button" aria-pressed="false" data-filter="category" data-value="community">Community</button>
+          <button class="chip" type="button" aria-pressed="false" data-filter="category" data-value="discussion">Discussion</button>
+          <button class="chip" type="button" aria-pressed="false" data-filter="category" data-value="events">Events</button>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <button class="filter-group__header" type="button" aria-expanded="false" aria-controls="filter-distance">Distance</button>
+        <div class="filter-group__options" id="filter-distance" hidden>
+          <button class="chip" type="button" aria-pressed="false" data-filter="distance" data-value="1">Within 1 mi</button>
+          <button class="chip" type="button" aria-pressed="false" data-filter="distance" data-value="5">Within 5 mi</button>
+          <button class="chip" type="button" aria-pressed="false" data-filter="distance" data-value="25">Within 25 mi</button>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <button class="filter-group__header" type="button" aria-expanded="false" aria-controls="filter-price">Price</button>
+        <div class="filter-group__options" id="filter-price" hidden>
+          <button class="chip" type="button" aria-pressed="false" data-filter="price" data-value="under50">Under $50</button>
+          <button class="chip" type="button" aria-pressed="false" data-filter="price" data-value="50to200">$50–$200</button>
+          <button class="chip" type="button" aria-pressed="false" data-filter="price" data-value="over200">Over $200</button>
+        </div>
+      </div>
+    </aside>
+
+    <section class="results" aria-labelledby="results-heading">
+      <div class="results__toolbar">
+        <button class="btn btn--outline" type="button" id="sort">Sort</button>
+        <span class="results__count" id="results-count" aria-live="polite"></span>
+      </div>
+      <ul class="listing-grid" id="results-grid"></ul>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

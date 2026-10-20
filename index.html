@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>craigslist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+Pro:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- apply saved theme before the page paints -->
+  <script>
+    try { document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"; } catch (e) {}
+  </script>
+</head>
+
+<body data-page="home">
+  <header class="navbar">
+    <button class="menu-btn mobile-only" type="button" aria-label="Open menu" data-open-menu>
+      <img src="assets/menu-white.svg" width="33" height="30" alt="" />
+    </button>
+    <a class="brand" href="index.html">
+      <img class="brand__logo brand__logo--mobile" src="assets/logo-mobile.svg" width="38" height="38" alt="" />
+      <img class="brand__logo brand__logo--desktop" src="assets/logo-desktop.svg" width="66" height="66" alt="" />
+      <span class="brand__name">craigslist</span>
+    </a>
+  </header>
+
+  <main class="home">
+    <h1 class="home__title">Find something nearby</h1>
+
+    <form class="search" action="search.html" role="search">
+      <div class="search__field">
+        <img class="icon-muted" src="assets/icon-search.svg" width="24" height="24" alt="" />
+        <label class="visually-hidden" for="q">Search craigslist</label>
+        <input class="search__input" id="q" type="search" name="q" placeholder="Search craigslist" autocomplete="off" />
+        <button class="search__clear" type="button" aria-label="Clear search">
+          <img class="icon-muted" src="assets/icon-close.svg" width="24" height="24" alt="" />
+        </button>
+      </div>
+      <button class="btn btn--primary search__submit" type="submit">Search</button>
+    </form>
+
+    <nav aria-label="Categories">
+      <ul class="categories">
+        <li><a class="category-card" href="search.html?category=for-sale">For Sale</a></li>
+        <li><a class="category-card" href="search.html?category=services">Services</a></li>
+        <li><a class="category-card" href="search.html?category=jobs">Jobs</a></li>
+        <li><a class="category-card" href="search.html?category=community">Community</a></li>
+        <li><a class="category-card" href="search.html?category=discussion">Discussion</a></li>
+        <li><a class="category-card" href="search.html?category=events">Events</a></li>
+      </ul>
+    </nav>
+  </main>
+
+  <!-- desktop dark-mode switch (bottom-right, as in the Figma dashboard) -->
+  <div class="theme-corner" data-theme-slot></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
